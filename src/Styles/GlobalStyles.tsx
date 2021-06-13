@@ -17,6 +17,7 @@ export const GlobalStyles = createGlobalStyle`
         background-color: #0c1222;
         width: 100vw;
         height: 100vh;
+        overflow-x: hidden;
     }
 
 `; 
