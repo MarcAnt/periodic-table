@@ -13,9 +13,9 @@ const Element: React.FC<IElement> = ({name, symbol, atomicNumber, groupBlock, bg
     return (
         <SingleElement bgColor={bgColor}>
             
-            <p>{atomicNumber}</p>
+            <p>{ atomicNumber === 0 ? '' : atomicNumber }</p>
             <h1>{symbol}</h1>
-            <p>{name}</p>
+            <p>{ ( name === '*' || name === '**' ) ? '' : name}</p>
             <small>{groupBlock}</small>
             
         </SingleElement>
