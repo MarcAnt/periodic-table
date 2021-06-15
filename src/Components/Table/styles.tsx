@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+
 export const TableWrapper = styled.div`
     width: 100%;
     display: flex;
@@ -7,7 +8,8 @@ export const TableWrapper = styled.div`
     flex-wrap: wrap;
     justify-content: center;
     margin: 2rem auto;
-`
+    
+`;
 
 
 

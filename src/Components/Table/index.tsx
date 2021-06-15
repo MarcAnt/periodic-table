@@ -9,9 +9,11 @@ import Fundamental from './Fundamental'
 import NobleGases from './NobleGases'
 
 
-
 const Table: React.FC = () => {
+    
+
     return (
+
         <TableWrapper>
             <InfoElement />
             <Sharp />

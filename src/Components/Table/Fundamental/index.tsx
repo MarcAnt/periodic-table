@@ -26,7 +26,9 @@ const Fundamental: React.FC = () => {
                                         atomicNumber={el.atomicNumber} 
                                         symbol={el.symbol} 
                                         groupBlock={el.group} 
-                                        bgColor={el.bgColor} /> 
+                                        bgColor={el.bgColor} 
+                                        standardStateElement={el.elementState}
+                                        /> 
             )}
 
         </FundamentalStyles>

@@ -6,17 +6,8 @@ interface ISingleElement {
     atomicNumber: number;
     group: string;
     bgColor: string;
-    content?: string;
+    elementState:string;
 }
-
-// interface IFundamentalElements {
-//     name: string;
-//     symbol: string;
-//     atomicNumber: number;
-//     group: string;
-//     bgColor: string;
-//     content: string;
-// }
 
 export function filterByElements( {data, numbers}: {data: IElements[] | null; numbers: number[]} ) {
     const element: ISingleElement[] = [];
@@ -28,7 +19,8 @@ export function filterByElements( {data, numbers}: {data: IElements[] | null; nu
                 symbol: el.symbol, 
                 atomicNumber: el.atomicNumber,
                 group: el.groupBlock,
-                bgColor: el.cpkHexColor
+                bgColor: el.cpkHexColor,
+                elementState: el.standardState
             })
             return element;
         })
@@ -50,7 +42,8 @@ export function filterByFundamentalAndDiffuse( {data, numbers}: {data: IElements
                 symbol: '*', 
                 atomicNumber: 0,
                 group: '',
-                bgColor: '0c1222'
+                bgColor: '0c1222',
+                elementState: ''
             })
     
        }else if(number === '**') {
@@ -60,7 +53,8 @@ export function filterByFundamentalAndDiffuse( {data, numbers}: {data: IElements
                 symbol: '**', 
                 atomicNumber: 0,
                 group: '',
-                bgColor: '0c1222'
+                bgColor: '0c1222',
+                elementState: ''
             })
     
        }else {
@@ -71,7 +65,8 @@ export function filterByFundamentalAndDiffuse( {data, numbers}: {data: IElements
                     symbol: el.symbol, 
                     atomicNumber: el.atomicNumber,
                     group: el.groupBlock,
-                    bgColor: el.cpkHexColor
+                    bgColor: el.cpkHexColor, 
+                    elementState: el.standardState
                 })
                 return element;
             })
