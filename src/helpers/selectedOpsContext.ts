@@ -7,7 +7,7 @@ export interface AppContextInterface {
 
 export const sampleAppContext: AppContextInterface = {
     
-    standardState: 'standard-state',
+    standardState: 'group-block',
     setCurrentState: () => {} 
 };
 

@@ -4,6 +4,7 @@ interface IBgColor {
     bgColor: string | number;
     standardStateElement: string; //solid, gas, liquid
     selectState: string; //standard-state || normal group
+    atomicNumber: number;
 };
 
 
@@ -13,28 +14,35 @@ const colorState: any = {
     liquid: '#FFBFBF' 
 }
 
-const selectedColor = (typeElement: string): string => { 
+const selectedStateBgColor = (standardStateElement: string, selectedState: string, bgColor: string | number, atomicNumber: number) => { 
     
-    return colorState[typeElement] 
+    console.log(atomicNumber)
+
+    if(selectedState === '' || selectedState === 'group-block' ) {
+        if(atomicNumber >= 110 && atomicNumber <= 118) return 'whitesmoke'
+        if(atomicNumber === 9) return '#D52092'
+        if(atomicNumber === 68) return '#00CCD5'
+        return `#${bgColor}`
+    }else {
+       if(atomicNumber >= 100 && atomicNumber <= 117) return colorState.solid
+       if(atomicNumber === 118) return colorState.gas
+       return colorState[standardStateElement]
+    }
+
 };
 
 
-// props => ( props.bgColor === '' ) ? '#20232c' : 
-// props.bgColor === 9e+51 ? '#D52092': 
-// props.bgColor === 0 ? '#00CCD5' : 
-// props.bgColor === 'standard-state' ? '#F1F1F2' : props.bgColor 
-
 export const SingleElement = styled.div<IBgColor>`
 
-    color: ${ props => ( props.bgColor === '' || props.bgColor === '0c1222' || props.bgColor === '0c1222' ) ? 'whitesmoke' : 'black' };
+    color:  ${props => (props.atomicNumber !== 0) ? 'black' : 'whitesmoke'};
     border-radius: 10px;
     width: 80px;
-    background-color: ${ props => props.selectState ? selectedColor(props.standardStateElement) : '#20232c' };
+    background-color: ${ props => selectedStateBgColor(props.standardStateElement, props.selectState, props.bgColor, props.atomicNumber) };
 
     text-align: center;
     padding: .15rem 0;
     box-shadow:  ${props => (props.bgColor !== '0c1222') ? '1px 2px 5px black' : '' };
-    cursor: pointer;
+    cursor: ${ props => (props.atomicNumber > 0) ? 'pointer' : 'default' } ;
     transition: opacity .3s ease-in-out;
 
     p {

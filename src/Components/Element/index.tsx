@@ -1,5 +1,5 @@
 import { AppCtx } from 'helpers/selectedOpsContext';
-import React, {ReactNode, useContext} from 'react'
+import React, {useContext} from 'react'
 import { SingleElement } from './styles'
 
 interface IElement {
@@ -8,13 +8,22 @@ interface IElement {
     atomicNumber: number;
     groupBlock: string;
     bgColor: string;
-    standardStateElement: string;
+    standardStateElement: string; 
 }
 
-function controlSmallText(standarStateContext: string, standardStateElement: string) {
-    // (standardState === 'standard-state' || standardState === '' ) ? standardStateElement === '' ? 'Expected Solid' : standardStateElement : groupBlock
-    console.log(standarStateContext, standardStateElement);
+function controlSmallText(standarStateContext: string, standardStateElement: string, groupBlock: string, atomicNumber: number) {
+    console.log(standardStateElement);
     
+    if (standarStateContext === '' || standarStateContext === 'group-block') {
+        return groupBlock
+    }else {
+
+        if(atomicNumber === 0) return ''
+        if(atomicNumber >= 100 && atomicNumber <= 109) return 'Solid'
+        if(atomicNumber === 118) return 'Gas (Expected)'
+        if(standardStateElement === '') return 'Solid (Expected)'
+        return standardStateElement
+    }
     
 }
 
@@ -24,13 +33,12 @@ const Element: React.FC<IElement> = ({name, symbol, atomicNumber, groupBlock, bg
 
     return (
 
-        <SingleElement bgColor={bgColor} standardStateElement={standardStateElement} selectState={standardState}>
+        <SingleElement bgColor={bgColor} standardStateElement={standardStateElement} selectState={standardState} atomicNumber={atomicNumber}>
             
             <p>{ atomicNumber === 0 ? '' : atomicNumber }</p>
             <h1>{symbol}</h1>
             <p>{ ( name === '*' || name === '**' ) ? '' : name}</p>
-            <small>{  }</small>
-            {controlSmallText(standardState, standardStateElement)}
+            <small>{ controlSmallText(standardState, standardStateElement, groupBlock, atomicNumber) }</small>
             
         </SingleElement>
         

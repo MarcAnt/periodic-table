@@ -6,7 +6,7 @@ import { AppCtx } from 'helpers/selectedOpsContext';
 
 const options = [
     { value: 'group-block', label: 'Chemical Grop Block' },
-    { value: 'standard-state', label: 'Standar State' }
+    { value: 'standard-state', label: 'Standard State' }
 ]
 
 
@@ -22,7 +22,7 @@ const InfoElement = () => {
     useEffect(() => {
 
         setCurrentState(state)
-        console.log(state);
+        // console.log(state);
         
     }, [state, setCurrentState])
 
