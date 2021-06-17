@@ -11,18 +11,31 @@ import Element from '../../Element';
 import { IElements} from '../../../Interfaces/IElements';
 import useFetch from '../../../hooks/useFetch'
 
-import {elementInfoLang} from '../../../Lang/es'
+import {elementInfoLang, placeHolderSelect} from '../../../Lang/es'
 
 
 const options = [
-    { value: 'group-block', label: 'Chemical Grop Block' },
+    { value: 'group-block', label: 'Chemical Group Block' },
     { value: 'standard-state', label: 'Standard State' }
 ]
+
+const options_es = [
+    { value: 'group-block', label: 'Grupo de bloque quimico' },
+    { value: 'standard-state', label: 'Estado Estandard' }
+]
+
+function changeLangOptionsOnSelect(lang:string, newOptions: object[]) {
+
+    if (lang === 'es') {
+        return newOptions;    
+    }else {
+        return options;
+    }
+}
 
 const InfoElement: React.FC = () => {
     
     const {lang} = useContext(LangCtx);
-   
 
     const [state, setState] = useState<string>('')
     const {setCurrentState} = useContext(AppCtx);
@@ -71,7 +84,7 @@ const InfoElement: React.FC = () => {
             </InfoElementStyles>
 
             <SelectBox>
-                <Select onChange={handleChange} options={options}  />
+                <Select onChange={handleChange} placeholder={(lang === 'es') ? placeHolderSelect.placeholder : 'Select Property'} options={changeLangOptionsOnSelect(lang, options_es)}  />
             </SelectBox>
         
         </InfoWrapper>
