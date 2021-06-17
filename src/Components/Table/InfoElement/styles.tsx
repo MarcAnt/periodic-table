@@ -22,17 +22,16 @@ export const InfoElementStyles = styled.div`
     border-radius: 10px;
     padding: 1rem;
     box-shadow: 1px 2px 10px black;
-    
+
     .info-element {
-        background-color: white;
-        text-align: center;
-        border-radius: 10px;
-        padding: 1rem;
-        box-shadow: 1px 2px 2px lightgray;
+        
+        div {
+            padding: 1rem;
+        }
     }
 
     .info-card {
         padding: 1rem;
     }
 
-` 
+`

@@ -1,0 +1,711 @@
+[
+    {
+        "atomicNumber": 1,
+        "name": "Hidrógeno",
+        "groupBlock": "no metal",
+        "standardState": "gas"
+    },
+    {
+        "atomicNumber": 2,
+        "name": "Helio",
+        "groupBlock": "gas noble",
+        "standardState": "gas"
+    },
+    {
+        "atomicNumber": 3,
+        "name": "Litio", 
+        "groupBlock": "alcalino",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 4,
+        "name": "Berilio", 
+        "groupBlock": "alcalinotérreo",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 5,
+        "name": "Boro", 
+        "groupBlock": "metaloide",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 6,
+        "name": "Carbón", 
+        "groupBlock": "no metal",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 7,
+        "name": "Nitrógeno", 
+        "groupBlock": "no metal",
+        "standardState": "gas"
+    },
+    {
+        "atomicNumber": 8,
+        "name": "Oxígeno", 
+        "groupBlock": "no metal",
+        "standardState": "gas"
+    },
+    {
+        "atomicNumber": 9,
+        "name": "Fluor", 
+        "groupBlock": "halógeno",
+        "standardState": "gas"
+    },
+    {
+        "atomicNumber": 10,
+        "name": "Neón", 
+        "groupBlock": "gas noble",
+        "standardState": "gas"
+    },
+    {
+        "atomicNumber": 11,
+        "name": "Sodio", 
+        "groupBlock": "alcalino",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 12,
+        "name": "Magnesio", 
+        "groupBlock": "alcalinotérreo",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 13,
+        "name": "Aluminio", 
+        "groupBlock": "metal",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 14,
+        "name": "Silicio", 
+        "groupBlock": "metaloide",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 15,
+        "name": "Fósforo", 
+        "groupBlock": "no metal",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 16,
+        "name": "Azufre", 
+        "groupBlock": "no metal",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 17,
+        "name": "Cloro", 
+        "groupBlock": "halógeno",
+        "standardState": "gas"
+    },
+    {
+        "atomicNumber": 18,
+        "name": "Argón", 
+        "groupBlock": "halógeno",
+        "standardState": "gas"
+    },
+    {
+        "atomicNumber": 19,
+        "name": "Potasio", 
+        "groupBlock": "alcalino",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 20,
+        "name": "Calcio", 
+        "groupBlock": "alcalinotérreo",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 21,
+        "name": "Escandio", 
+        "groupBlock": "metal de trans.",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 22,
+        "name": "Titanio", 
+        "groupBlock": "metal de trans.",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 23,
+        "name": "Vanadio", 
+        "groupBlock": "metal de trans.",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 24,
+        "name": "Cromo", 
+        "groupBlock": "metal de trans.",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 25,
+        "name": "Magnesio", 
+        "groupBlock": "metal de trans.",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 26,
+        "name": "Hierro", 
+        "groupBlock": "metal de trans.",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 27,
+        "name": "Cobalto", 
+        "groupBlock": "metal de trans.",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 28,
+        "name": "Niquel", 
+        "groupBlock": "metal de trans.",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 29,
+        "name": "Cobre", 
+        "groupBlock": "metal de trans.",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 30,
+        "name": "Zinc", 
+        "groupBlock": "metal de trans.",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 31,
+        "name": "Galio", 
+        "groupBlock": "metal",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 32,
+        "name": "Germanio", 
+        "groupBlock": "metal",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 33,
+        "name": "Arsénico", 
+        "groupBlock": "metaloide",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 34,
+        "name": "Selenio", 
+        "groupBlock": "no metal",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 35,
+        "name": "Bromo", 
+        "groupBlock": "halógeno",
+        "standardState": "líquido"
+    },
+    {
+        "atomicNumber": 36,
+        "name": "Kriptón", 
+        "groupBlock": "gas noble",
+        "standardState": "gas"
+    },
+    {
+        "atomicNumber": 37,
+        "name": "Rubidio", 
+        "groupBlock": "alcalino",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 38,
+        "name": "Estroncio", 
+        "groupBlock": "alcalinotérreo",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 39,
+        "name": "Itrio", 
+        "groupBlock": "metal de trans.",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 40,
+        "name": "Zirconio", 
+        "groupBlock": "metal de trans.",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 41,
+        "name": "Niobio", 
+        "groupBlock": "metal de trans.",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 42,
+        "name": "Molibdeno", 
+        "groupBlock": "metal de trans.",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 43,
+        "name": "Tecnecio", 
+        "groupBlock": "metal de trans.",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 44,
+        "name": "Rutenio", 
+        "groupBlock": "metal de trans.",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 45,
+        "name": "Rodio", 
+        "groupBlock": "metal de trans.",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 46,
+        "name": "Paladio", 
+        "groupBlock": "metal de trans.",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 47,
+        "name": "Plata", 
+        "groupBlock": "metal de trans.",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 48,
+        "name": "Cadmio", 
+        "groupBlock": "metal de trans.",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 49,
+        "name": "Indio", 
+        "groupBlock": "metal",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 50,
+        "name": "Estaño", 
+        "groupBlock": "metal",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 51,
+        "name": "Antimonio", 
+        "groupBlock": "metaloide",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 52,
+        "name": "Teluro", 
+        "groupBlock": "metaloide",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 53,
+        "name": "Yodo", 
+        "groupBlock": "halógeno",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 54,
+        "name": "Xenón", 
+        "groupBlock": "gas noble",
+        "standardState": "gas"
+    },
+    {
+        "atomicNumber": 55,
+        "name": "Cesio", 
+        "groupBlock": "alcalino",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 56,
+        "name": "Bario", 
+        "groupBlock": "alcalinotérreo",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 57,
+        "name": "Lantano", 
+        "groupBlock": "lantánido",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 58,
+        "name": "Cerio", 
+        "groupBlock": "lantánido",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 59,
+        "name": "Praseodimio", 
+        "groupBlock": "lantánido",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 60,
+        "name": "Neodimio", 
+        "groupBlock": "lantánido",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 61,
+        "name": "Promecio", 
+        "groupBlock": "lantánido",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 62,
+        "name": "Samario", 
+        "groupBlock": "lantánido",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 63,
+        "name": "Europio", 
+        "groupBlock": "lantánido",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 64,
+        "name": "Gadolionio", 
+        "groupBlock": "lantánido",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 65,
+        "name": "Terbio", 
+        "groupBlock": "lantánido",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 66,
+        "name": "Disprosio", 
+        "groupBlock": "lantánido",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 67,
+        "name": "Holmio", 
+        "groupBlock": "lantánido",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 68,
+        "name": "Erbio", 
+        "groupBlock": "lantánido",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 69,
+        "name": "Tulio", 
+        "groupBlock": "lantánido",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 70,
+        "name": "Iterbio", 
+        "groupBlock": "lantánido",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 71,
+        "name": "Lutecio", 
+        "groupBlock": "lantánido",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 72,
+        "name": "Hafnio", 
+        "groupBlock": "metal de trans.",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 73,
+        "name": "Tántalo", 
+        "groupBlock": "metal de trans.",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 74,
+        "name": "Wolframio", 
+        "groupBlock": "metal de trans.",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 75,
+        "name": "Renio", 
+        "groupBlock": "metal de trans.",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 76,
+        "name": "Osmio", 
+        "groupBlock": "metal de trans.",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 77,
+        "name": "Iridio", 
+        "groupBlock": "metal de trans.",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 78,
+        "name": "Platino", 
+        "groupBlock": "metal de trans.",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 79,
+        "name": "Platino", 
+        "groupBlock": "metal de trans.",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 80,
+        "name": "Mercurio", 
+        "groupBlock": "metal de trans.",
+        "standardState": "líquido"
+    },
+    {
+        "atomicNumber": 81,
+        "name": "Talio", 
+        "groupBlock": "metal",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 82,
+        "name": "Plomo", 
+        "groupBlock": "metal",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 83,
+        "name": "Bismuto", 
+        "groupBlock": "metal",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 84,
+        "name": "Polonio", 
+        "groupBlock": "metaloide",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 85,
+        "name": "Astato", 
+        "groupBlock": "halógeno",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 86,
+        "name": "Radón", 
+        "groupBlock": "gas noble",
+        "standardState": "gas"
+    },
+    {
+        "atomicNumber": 87,
+        "name": "Francio", 
+        "groupBlock": "alcalino",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 88,
+        "name": "Radio", 
+        "groupBlock": "alcalinotérreo",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 89,
+        "name": "Actinio", 
+        "groupBlock": "actinido",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 90,
+        "name": "Torio", 
+        "groupBlock": "actinido",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 91,
+        "name": "Protactinio", 
+        "groupBlock": "actinido",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 92,
+        "name": "Uranio", 
+        "groupBlock": "actinido",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 93,
+        "name": "Neptunio", 
+        "groupBlock": "actinido",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 94,
+        "name": "Plutonio", 
+        "groupBlock": "actinido",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 95,
+        "name": "Americio", 
+        "groupBlock": "actinido",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 96,
+        "name": "Curio", 
+        "groupBlock": "actinido",
+        "standardState": "sólido"
+    }, 
+    {
+        "atomicNumber": 97,
+        "name": "Berkelio", 
+        "groupBlock": "actinido",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 98,
+        "name": "Californio", 
+        "groupBlock": "actinido",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 99,
+        "name": "Einstenio", 
+        "groupBlock": "actinido",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 100,
+        "name": "Einstenio", 
+        "groupBlock": "actinido",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 101,
+        "name": "Mendelevio", 
+        "groupBlock": "actinido",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 102,
+        "name": "Nobelio", 
+        "groupBlock": "actinido",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 103,
+        "name": "Laurencio", 
+        "groupBlock": "actinido",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 104,
+        "name": "Rutherfordio", 
+        "groupBlock": "metal de trans.",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 105,
+        "name": "Rutherfordio", 
+        "groupBlock": "metal de trans.",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 106,
+        "name": "Seaborgio", 
+        "groupBlock": "metal de trans.",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 107,
+        "name": "Bohrio", 
+        "groupBlock": "metal de trans.",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 108,
+        "name": "Hassio", 
+        "groupBlock": "metal de trans.",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 109,
+        "name": "Meitnerio", 
+        "groupBlock": "metal de trans.",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 110,
+        "name": "Darmstatio", 
+        "groupBlock": "metal de trans.",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 111,
+        "name": "Roentgenio", 
+        "groupBlock": "metal de trans.",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 112,
+        "name": "Copernicio", 
+        "groupBlock": "metal de trans.",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 113,
+        "name": "Nihonio", 
+        "groupBlock": "metaloide",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 114,
+        "name": "Flerovio", 
+        "groupBlock": "metaloide",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 115,
+        "name": "Moscovio", 
+        "groupBlock": "metaloide",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 116,
+        "name": "Livermorio", 
+        "groupBlock": "metaloide",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 117,
+        "name": "Teneso", 
+        "groupBlock": "halógeno",
+        "standardState": "sólido"
+    },
+    {
+        "atomicNumber": 118,
+        "name": "Oganesón", 
+        "groupBlock": "gas noble",
+        "standardState": "gas"
+    }
+    
+]

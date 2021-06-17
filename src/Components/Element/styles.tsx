@@ -16,8 +16,6 @@ const colorState: any = {
 
 const selectedStateBgColor = (standardStateElement: string, selectedState: string, bgColor: string | number, atomicNumber: number) => { 
     
-    console.log(atomicNumber)
-
     if(selectedState === '' || selectedState === 'group-block' ) {
         if(atomicNumber >= 110 && atomicNumber <= 118) return 'whitesmoke'
         if(atomicNumber === 9) return '#D52092'

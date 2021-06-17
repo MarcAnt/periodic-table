@@ -14,13 +14,12 @@ const ATOMIC_NUMBERS_GROUP_FUNDAMENTAL: (string|number)[] = ['*', 57, 58, 59, 60
 const Fundamental: React.FC = () => {
 
     const {done, data} = useFetch<IElements[]>('https://neelpatel05.pythonanywhere.com') 
-    // const diffuse = filterByElements( {data: data, numbers: ATOMIC_NUMBERS_GROUP_METALS} ); 
-    const d = filterByFundamentalAndDiffuse( {data: data, numbers: ATOMIC_NUMBERS_GROUP_FUNDAMENTAL} ); 
+    const diffuse = filterByFundamentalAndDiffuse( {data: data, numbers: ATOMIC_NUMBERS_GROUP_FUNDAMENTAL} ); 
 
     return (
         <FundamentalStyles>
             
-            {done && d?.map(el => <Element 
+            {done && diffuse?.map(el => <Element 
                                         key={el.name} 
                                         name={el.name} 
                                         atomicNumber={el.atomicNumber} 

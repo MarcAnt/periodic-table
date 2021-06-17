@@ -18,8 +18,25 @@ export const HeaderStyles = styled.div`
         font-size: .8rem;
     }
 
-    h1, a {
+    h1 {
         padding-top: 2rem;
+    }
+
+    span {
+        margin: 1rem;
+        color: whitesmoke;
+    }
+
+    span button {
+        cursor: pointer;
+        background-color: transparent;
+        border: none;
+        margin: .5rem;
+        color: whitesmoke;
+        font-weight: 700;
+    }
+    a > svg {
+        margin-top: 5px;
     }
    
 ` 

@@ -23,4 +23,14 @@ export interface IElements {
  
 }
 
+export interface ILangEs {
+   
+    groupBlock: string;
+    name: string;
+    standardState: string;
+    symbol: string;
+    atomicNumber: number;
+      
+}
+
 
