@@ -68,7 +68,7 @@ const Element: React.FC<IElement> = ({name, symbol, atomicNumber, groupBlock, bg
 
     return (
 
-        <SingleElement bgColor={bgColor} standardStateElement={standardStateElement} selectState={standardState} atomicNumber={atomicNumber}>
+        <SingleElement bgColor={bgColor} groupBlock={groupBlock} standardStateElement={standardStateElement} selectState={standardState} atomicNumber={atomicNumber}>
             
             <p>{ atomicNumber === 0 ? '' : atomicNumber }</p>
             <h1>{symbol}</h1>
