@@ -8,7 +8,9 @@ import Element from '../../Element';
 
 import {filterByElements} from '../../../helpers/filterByNames';
 
-const ATOMIC_NUMBERS_GROUP_NOBLEGASES: number[] = [2,10,18,36,54,86,118];
+// const ATOMIC_NUMBERS_GROUP_NOBLEGASES: number[] = [2,10,18,36,54,86,118];
+import {ATOMIC_NUMBERS_GROUP_NOBLEGASES} from '../../../helpers/atomicNumbers';
+
 
 const NobleGases: React.FC = () => {
 

@@ -8,8 +8,7 @@ import useFetch from '../../../../hooks/useFetch';
 import Element from '../../../Element';
 import {filterByElements} from '../../../../helpers/filterByNames';
 
-const ATOMIC_NUMBERS_GROUP_ALKALINE_EARTH: number[] = [4, 12, 20, 38, 56, 88];
-
+import {ATOMIC_NUMBERS_GROUP_ALKALINE_EARTH} from '../../../../helpers/atomicNumbers';
 
 const AlkalineEarths: React.FC = () => {
     

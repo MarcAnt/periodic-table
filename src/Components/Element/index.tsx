@@ -1,14 +1,17 @@
 import React, {useContext, useState} from 'react'
-import { SingleElement, SingleElementModal } from './styles'
+import { SingleElement } from './styles'
 
-import { AppCtx } from 'helpers/selectedOpsContext';
+import { AppCtx } from 'Context/selectedOpsContext';
 import { LangCtx } from 'Context/langContext';
 
 import useFetchLang from '../../hooks/useFetchLang'
 import { ILangEs } from 'Interfaces/IElements';
 import { filterElementsByLang } from 'helpers/filterByLang';
+import {elementInfoLang} from '../../Lang/es';
+
 
 import Modal from 'Components/Modal';
+import {buttonClose, modalContent, modalOverlay, SingleElementModal, InfoSingleElementModal} from 'Components/Modal/styles';
 import { FaTimes } from 'react-icons/fa';
 
 
@@ -93,9 +96,9 @@ const Element: React.FC<IElement> = ({name, symbol, atomicNumber, groupBlock, bg
                 
                 <Modal>
                     
-                    <div style={{backgroundColor: 'black', opacity: .6, width: '100vw', height:'100vh', position: 'fixed'}} ></div>
+                    <div style={modalOverlay} ></div>
                     
-                    <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', backgroundColor: 'whitesmoke', width: '50%', height: '50%', position: 'fixed', borderRadius: '10px'}} >
+                    <div style={modalContent} >
                         
                        
                         <SingleElementModal 
@@ -113,31 +116,15 @@ const Element: React.FC<IElement> = ({name, symbol, atomicNumber, groupBlock, bg
                         
                         </SingleElementModal>
 
-                        <div style={{fontSize: '1.2rem', textAlign: 'center'}}>
-                            <p style={{padding: '1.2rem 0'}}>Atomic Number</p>
-                            <h1 style={{padding: '1.2rem 0'}}>Symbol</h1>
-                            <p style={{padding: '1.2rem 0', fontSize: '3rem'}}>Name</p>
-                            <small style={{padding: '1.2rem 0'}}>Chemical Group Block | Standard State</small>
-                        </div>    
+                        <InfoSingleElementModal>
+                            <p>{ lang === 'es' ? elementInfoLang.atomicNumber : 'Atomic Number' }</p>
+                            <h1>{ lang === 'es' ? elementInfoLang.symbol : 'Symbol' }</h1>
+                            <p>{ lang === 'es' ? elementInfoLang.name : 'Name' }</p>
+                            <small>{ lang === 'es' ? elementInfoLang.chemGroup : 'Chemical Group Block' } | { lang === 'es' ? elementInfoLang.standardState : 'Standard State' }</small>
+                        </InfoSingleElementModal>    
                         
                         
-                        <button style={
-                            {   
-                                color: 'black',
-                                fontSize: '2rem', 
-                                position: 'absolute', 
-                                right: '1rem', 
-                                top: '1rem', 
-                                backgroundColor: 'transparent', 
-                                border: 'none',
-                                cursor: 'pointer'
-                                
-                            }
-                            } onClick={() => setShowModal(false)}> 
-
-                            <FaTimes />
-                        
-                        </button>
+                        <button style={buttonClose} onClick={() => setShowModal(false)}><FaTimes /></button>
 
                     </div>    
             

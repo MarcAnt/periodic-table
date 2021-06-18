@@ -1,13 +1,13 @@
 import React from "react";
 import  { createPortal } from "react-dom";
-import { modalStyles } from "./styles";
+import { modalWrapper } from "./styles";
 
 const modalRoot = document.querySelector("#modal-root") as HTMLElement;
 
 const Modal: React.FC = ({children}) => {
 
     return createPortal(
-        <div style={modalStyles}>{children}</div>
+        <div style={modalWrapper}>{children}</div>
         , modalRoot
     )
 }

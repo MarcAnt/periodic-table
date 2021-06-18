@@ -32,8 +32,9 @@ const colorBlock: any = {
     actinoid: '#C0FFEA'
 }
 
+//Also used in the modal component to control the color of the element 
 
-const selectedStateBgColor = (standardStateElement: string, selectedState: string, atomicNumber: number, groupBlock: string) => { 
+export const selectedStateBgColor = (standardStateElement: string, selectedState: string, atomicNumber: number, groupBlock: string) => { 
     
     //Only for * and ** 
     if(atomicNumber === 0) return noColor.color
@@ -77,31 +78,6 @@ export const SingleElement = styled.button<IBgColor>`
     :hover {
         opacity: .7;
     } 
-
-    
-` 
-//Only for modal
-export const SingleElementModal = styled.button<IBgColor>`
-    
-    font-family: 'Inconsolata', sans-serif;
-    color:  ${props => (props.atomicNumber !== 0) ? 'black' : 'whitesmoke'};
-    border-radius: 10px;
-    border: none;
-    width: 50%;
-    background-color: ${ props => selectedStateBgColor(props.standardStateElement, props.selectState, props.atomicNumber, props.groupBlock) };
-    text-align: center;
-    padding: 2rem;
-    box-shadow:  ${props => (props.bgColor !== '0c1222') ? '1px 2px 5px lightgrey' : '' };
-    p {
-        font-size: 3rem;
-    }
-
-    h1 {
-        font-size: 5rem;
-    }
-    small {
-        font-size: 2rem;
-    }
 
     
 ` 

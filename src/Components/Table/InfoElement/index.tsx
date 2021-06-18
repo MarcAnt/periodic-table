@@ -3,7 +3,7 @@ import {useState, useEffect, useContext}  from 'react';
 import { InfoElementStyles, InfoWrapper, SelectBox } from './styles';
 import Select from 'react-select'
 
-import { AppCtx } from 'helpers/selectedOpsContext';
+import { AppCtx } from 'Context/selectedOpsContext';
 import { LangCtx } from 'Context/langContext';
 
 import {filterByElements} from  '../.././../helpers/filterByNames'
@@ -11,7 +11,7 @@ import Element from '../../Element';
 import { IElements} from '../../../Interfaces/IElements';
 import useFetch from '../../../hooks/useFetch'
 
-import {elementInfoLang, placeHolderSelect} from '../../../Lang/es'
+import {elementInfoLang, placeHolderSelect} from '../../../Lang/es';
 
 
 const options = [
