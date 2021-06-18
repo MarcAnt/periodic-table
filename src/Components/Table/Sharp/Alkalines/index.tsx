@@ -15,6 +15,7 @@ const Alkaline: React.FC = () => {
     const {done, data} = useFetch<IElements[]>('https://neelpatel05.pythonanywhere.com') 
     const alkaline = filterByElements( {data: data, numbers: ATOMIC_NUMBERS_GROUP_ALKALINE} );
     
+
     return (
         <AlkalineStyles>
             

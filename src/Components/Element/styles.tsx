@@ -14,6 +14,10 @@ const colorState: any = {
     solid: '#F1F1F2',
     liquid: '#FFBFBF' 
 }
+//Only for * and ** 
+const noColor: any = {
+    color: 'transparent' 
+}
 
 const colorBlock: any = {
     nonmetal: '#FFFFC7',
@@ -28,32 +32,31 @@ const colorBlock: any = {
     actinoid: '#C0FFEA'
 }
 
-// if(atomicNumber >= 110 && atomicNumber <= 118) return 'whitesmoke'
-// if(atomicNumber === 9) return '#D52092'
-// if(atomicNumber === 68) return '#00CCD5'
-// return `#${bgColor}`
 
-const selectedStateBgColor = (standardStateElement: string, selectedState: string, bgColor: string | number, atomicNumber: number, groupBlock: string) => { 
+const selectedStateBgColor = (standardStateElement: string, selectedState: string, atomicNumber: number, groupBlock: string) => { 
+    
+    //Only for * and ** 
+    if(atomicNumber === 0) return noColor.color
     
     if(selectedState === '' || selectedState === 'group-block' ) {
         if(groupBlock === 'post-transition metal') return colorBlock['metal']
         return colorBlock[groupBlock]
     }else {
-       if(atomicNumber >= 100 && atomicNumber <= 117) return colorState.solid
-       if(atomicNumber === 118) return colorState.gas
-       return colorState[standardStateElement]
+        if(atomicNumber >= 100 && atomicNumber <= 117) return colorState.solid
+        if(atomicNumber === 118) return colorState.gas
+        return colorState[standardStateElement]
     }
-
+    
 };
 
 
-export const SingleElement = styled.div<IBgColor>`
-
+export const SingleElement = styled.button<IBgColor>`
+    font-family: 'Inconsolata', sans-serif;
     color:  ${props => (props.atomicNumber !== 0) ? 'black' : 'whitesmoke'};
     border-radius: 10px;
+    border: none;
     width: 80px;
-    background-color: ${ props => selectedStateBgColor(props.standardStateElement, props.selectState, props.bgColor, props.atomicNumber, props.groupBlock) };
-
+    background-color: ${ props => selectedStateBgColor(props.standardStateElement, props.selectState, props.atomicNumber, props.groupBlock) };
     text-align: center;
     padding: .15rem 0;
     box-shadow:  ${props => (props.bgColor !== '0c1222') ? '1px 2px 5px black' : '' };
@@ -75,6 +78,30 @@ export const SingleElement = styled.div<IBgColor>`
         opacity: .7;
     } 
 
+    
+` 
+//Only for modal
+export const SingleElementModal = styled.button<IBgColor>`
+    
+    font-family: 'Inconsolata', sans-serif;
+    color:  ${props => (props.atomicNumber !== 0) ? 'black' : 'whitesmoke'};
+    border-radius: 10px;
+    border: none;
+    width: 50%;
+    background-color: ${ props => selectedStateBgColor(props.standardStateElement, props.selectState, props.atomicNumber, props.groupBlock) };
+    text-align: center;
+    padding: 2rem;
+    box-shadow:  ${props => (props.bgColor !== '0c1222') ? '1px 2px 5px lightgrey' : '' };
+    p {
+        font-size: 3rem;
+    }
+
+    h1 {
+        font-size: 5rem;
+    }
+    small {
+        font-size: 2rem;
+    }
 
     
 ` 

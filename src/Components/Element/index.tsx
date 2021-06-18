@@ -1,5 +1,5 @@
-import React, {useContext} from 'react'
-import { SingleElement } from './styles'
+import React, {useContext, useState} from 'react'
+import { SingleElement, SingleElementModal } from './styles'
 
 import { AppCtx } from 'helpers/selectedOpsContext';
 import { LangCtx } from 'Context/langContext';
@@ -7,6 +7,9 @@ import { LangCtx } from 'Context/langContext';
 import useFetchLang from '../../hooks/useFetchLang'
 import { ILangEs } from 'Interfaces/IElements';
 import { filterElementsByLang } from 'helpers/filterByLang';
+
+import Modal from 'Components/Modal';
+import { FaTimes } from 'react-icons/fa';
 
 
 interface IElement {
@@ -57,7 +60,10 @@ function controlSmallText(
     
 }
 
+
 const Element: React.FC<IElement> = ({name, symbol, atomicNumber, groupBlock, bgColor, standardStateElement}) => {
+    
+    const [showModal, setShowModal] = useState<boolean>(false);
     
     const {lang} = useContext(LangCtx);
     const {dataLang} = useFetchLang<ILangEs[]>('elements_es.json');
@@ -67,16 +73,78 @@ const Element: React.FC<IElement> = ({name, symbol, atomicNumber, groupBlock, bg
     const {standardState} = useContext(AppCtx);
 
     return (
+        <>
+            <SingleElement 
+                onClick={() => setShowModal(true)} 
+                bgColor={bgColor} 
+                groupBlock={groupBlock} 
+                standardStateElement={standardStateElement} 
+                selectState={standardState} 
+                atomicNumber={atomicNumber}>
+                
+                <p>{ atomicNumber === 0 ? '' : atomicNumber }</p>
+                <h1>{symbol}</h1>
+                <p>{ ( name === '*' || name === '**' ) ? '' :  lang === "es" ? elLang?.name : name}</p>
+                <small>{ controlSmallText(standardState, standardStateElement, groupBlock, atomicNumber,lang, elLang) }</small>
+            
+            </SingleElement>
 
-        <SingleElement bgColor={bgColor} groupBlock={groupBlock} standardStateElement={standardStateElement} selectState={standardState} atomicNumber={atomicNumber}>
+            { showModal && name !== '*' && name !== '**' && 
+                
+                <Modal>
+                    
+                    <div style={{backgroundColor: 'black', opacity: .6, width: '100vw', height:'100vh', position: 'fixed'}} ></div>
+                    
+                    <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', backgroundColor: 'whitesmoke', width: '50%', height: '50%', position: 'fixed', borderRadius: '10px'}} >
+                        
+                       
+                        <SingleElementModal 
+                            onClick={() => setShowModal(true)} 
+                            bgColor={bgColor} 
+                            groupBlock={groupBlock} 
+                            standardStateElement={standardStateElement} 
+                            selectState={standardState} 
+                            atomicNumber={atomicNumber}>
+                            
+                            <p>{ atomicNumber === 0 ? '' : atomicNumber }</p>
+                            <h1>{symbol}</h1>
+                            <p>{ ( name === '*' || name === '**' ) ? '' :  lang === "es" ? elLang?.name : name}</p>
+                            <small>{ controlSmallText(standardState, standardStateElement, groupBlock, atomicNumber,lang, elLang) }</small>
+                        
+                        </SingleElementModal>
+
+                        <div style={{fontSize: '1.2rem', textAlign: 'center'}}>
+                            <p style={{padding: '1.2rem 0'}}>Atomic Number</p>
+                            <h1 style={{padding: '1.2rem 0'}}>Symbol</h1>
+                            <p style={{padding: '1.2rem 0', fontSize: '3rem'}}>Name</p>
+                            <small style={{padding: '1.2rem 0'}}>Chemical Group Block | Standard State</small>
+                        </div>    
+                        
+                        
+                        <button style={
+                            {   
+                                color: 'black',
+                                fontSize: '2rem', 
+                                position: 'absolute', 
+                                right: '1rem', 
+                                top: '1rem', 
+                                backgroundColor: 'transparent', 
+                                border: 'none',
+                                cursor: 'pointer'
+                                
+                            }
+                            } onClick={() => setShowModal(false)}> 
+
+                            <FaTimes />
+                        
+                        </button>
+
+                    </div>    
             
-            <p>{ atomicNumber === 0 ? '' : atomicNumber }</p>
-            <h1>{symbol}</h1>
-            <p>{ ( name === '*' || name === '**' ) ? '' :  lang === "es" ? elLang?.name : name}</p>
-            <small>{ controlSmallText(standardState, standardStateElement, groupBlock, atomicNumber,lang, elLang) }</small>
-            {/* <small>{  lang === "es" ? elLang?.groupBlock :  groupBlock }</small> */}
-            
-        </SingleElement>
+
+                </Modal> 
+            }     
+        </>
         
     )
 }

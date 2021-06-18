@@ -25,7 +25,7 @@ export const InfoElementStyles = styled.div`
 
     .info-element {
         
-        div {
+        button {
             padding: 1rem;
         }
     }
