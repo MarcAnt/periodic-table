@@ -1,6 +1,6 @@
 import { IElements } from "Interfaces/IElements";
 
-interface ISingleElement {
+export interface ISingleElement {
     name: string;
     symbol: string;
     atomicNumber: number;

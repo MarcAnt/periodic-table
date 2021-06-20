@@ -1,17 +1,19 @@
 import {useState, useEffect, useContext}  from 'react';
 
-import { InfoElementStyles, InfoWrapper, SelectBox } from './styles';
 import Select from 'react-select'
+
+import { InfoElementStyles, InfoWrapper, SelectBox } from './styles';
 
 import { AppCtx } from 'Context/selectedOpsContext';
 import { LangCtx } from 'Context/langContext';
+import {elementInfoLang, placeHolderSelect} from '../../../Lang/es';
 
 import {filterByElements} from  '../.././../helpers/filterByNames'
 import Element from '../../Element';
 import { IElements} from '../../../Interfaces/IElements';
 import useFetch from '../../../hooks/useFetch'
 
-import {elementInfoLang, placeHolderSelect} from '../../../Lang/es';
+import {Loader} from 'Components/Loader';
 
 
 const options = [
@@ -56,7 +58,7 @@ const InfoElement: React.FC = () => {
             
             <InfoElementStyles>
                 <div className="info-element">
-                    {done && h?.map(el => <Element 
+                    {done ? h?.map(el => <Element 
                                             key={el.name} 
                                             name={el.name} 
                                             atomicNumber={el.atomicNumber} 
@@ -65,7 +67,7 @@ const InfoElement: React.FC = () => {
                                             bgColor={el.bgColor} 
                                             standardStateElement={el.elementState}
                                             /> 
-                    )}
+                    ) : <Loader />}
                     
                 </div>
                 <div className="info-card">

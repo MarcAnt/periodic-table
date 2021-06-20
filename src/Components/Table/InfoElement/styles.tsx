@@ -5,8 +5,8 @@ export const InfoWrapper = styled.div`
     position: absolute;
     display: flex;
     width: 50%;
-    top: 25%;
-
+    top: 0;
+    transform: translateY(11rem);
 `;
 
 export const SelectBox = styled.div`

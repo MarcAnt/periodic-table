@@ -136,4 +136,4 @@ const Element: React.FC<IElement> = ({name, symbol, atomicNumber, groupBlock, bg
     )
 }
 
-export default Element;
+export default React.memo(Element);

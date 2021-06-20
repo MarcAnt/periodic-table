@@ -8,21 +8,30 @@ import Principal from './Principal'
 import Fundamental from './Fundamental'
 import NobleGases from './NobleGases'
 
+import { IElements } from '../../Interfaces/IElements';
+import useFetch from '../../hooks/useFetch';
 
 const Table: React.FC = () => {
     
-
+    const {done} = useFetch<IElements[]>('https://neelpatel05.pythonanywhere.com') 
+ 
     return (
-
-        <TableWrapper>
-            <InfoElement />
-            <Sharp />
-            <Diffuse />
-            <Principal /> 
-            <NobleGases />
-            <Fundamental />
-        </TableWrapper>
-            
+        <>
+            {
+                done ? 
+                <TableWrapper>
+                    <InfoElement />
+                    <Sharp />
+                    <Diffuse />
+                    <Principal /> 
+                    <NobleGases />
+                    <Fundamental />
+                </TableWrapper>
+                : 
+                null
+            }
+                
+        </>
     )
 }
 
