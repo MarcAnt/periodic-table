@@ -23,7 +23,6 @@ export const HeaderStyles = styled.div`
     }
 
     span {
-        margin: 1rem;
         color: whitesmoke;
     }
 

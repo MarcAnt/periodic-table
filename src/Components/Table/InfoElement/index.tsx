@@ -1,92 +1,103 @@
-import {useState, useEffect, useContext}  from 'react';
+import React, {useContext, useState, useEffect}  from 'react';
+import { InfoElementStyles, InfoWrapper, SelectBox} from './styles';
 
-import Select from 'react-select'
+import Select from 'react-select';
 
-import { InfoElementStyles, InfoWrapper, SelectBox } from './styles';
-
-import { AppCtx } from 'Context/selectedOpsContext';
-import { LangCtx } from 'Context/langContext';
-import {elementInfoLang, placeHolderSelect} from '../../../Lang/es';
-
-import {filterByElements} from  '../.././../helpers/filterByNames'
 import Element from '../../Element';
-import { IElements} from '../../../Interfaces/IElements';
-import useFetch from '../../../hooks/useFetch'
 
-import {Loader} from 'Components/Loader';
+import useFetchElements from 'hooks/useFetchElements';
+import { ATOMIC_NUMBER_FOR_INFO } from 'helpers/atomicNumbers';
+
+import { Context } from 'Context/selectedOpsContext';
+
+import {useIntl, FormattedMessage} from 'react-intl';
 
 
 const options = [
     { value: 'group-block', label: 'Chemical Group Block' },
     { value: 'standard-state', label: 'Standard State' }
-]
+];
 
 const options_es = [
-    { value: 'group-block', label: 'Grupo de bloque quimico' },
+    { value: 'group-block', label: 'Grupo Químico' },
     { value: 'standard-state', label: 'Estado Estandard' }
-]
+];
 
-function changeLangOptionsOnSelect(lang:string, newOptions: object[]) {
-
-    if (lang === 'es') {
-        return newOptions;    
-    }else {
-        return options;
-    }
+const placeholders = {
+    en: 'Select Property',
+    es: 'Seleccionar Propiedad'
 }
 
 const InfoElement: React.FC = () => {
     
-    const {lang} = useContext(LangCtx);
-
-    const [state, setState] = useState<string>('')
-    const {setCurrentState} = useContext(AppCtx);
+    const {state: info} = useFetchElements(ATOMIC_NUMBER_FOR_INFO, 'infoelement');
+    const {setColor} = useContext(Context);
+    const intl = useIntl();
     
-    const {done, data} = useFetch<IElements[]>('https://neelpatel05.pythonanywhere.com') 
-    const h = filterByElements( {data: data, numbers: [1]} ); 
+    const [selectOptions, setSelectOptions] = useState(options);
+    const [placeholder, setPlaceholder] = useState(placeholders.en);
 
-    const handleChange = (e: any):void => {
-        setState(e.value)
-    }
+    useEffect(() => {
+        intl.locale === 'es' ? setSelectOptions(options_es) : setSelectOptions(options);
+    }, [intl])
     
     useEffect(() => {
-        setCurrentState(state)
-    }, [state, setCurrentState])
-
+        intl.locale === 'es' ? setPlaceholder(placeholders.es) : setPlaceholder(placeholders.en);
+    }, [intl])
+    
+    const handleChange = (e: any ) => {
+        setColor(e.value)
+    }
+    
     return (
         <InfoWrapper >
             
             <InfoElementStyles>
                 <div className="info-element">
-                    {done ? h?.map(el => <Element 
-                                            key={el.name} 
-                                            name={el.name} 
-                                            atomicNumber={el.atomicNumber} 
-                                            symbol={el.symbol} 
-                                            groupBlock={el.group} 
-                                            bgColor={el.bgColor} 
-                                            standardStateElement={el.elementState}
+                    {
+                        info?.map(el => <Element 
+                                                key={el.name} 
+                                                name={el.name} 
+                                                atomicNumber={el.atomicNumber} 
+                                                symbol={el.symbol} 
+                                                groupBlock={el.groupBlock} 
+                                                standardState={el.standardState}
+                                               
                                             /> 
-                    ) : <Loader />}
+                        )
+                    
+                    }
                     
                 </div>
                 <div className="info-card">
-                    <p>{ (lang === 'es') ? elementInfoLang.atomicNumber : 'Atomic Number'}</p>
-                    <h1>{ (lang === 'es') ? elementInfoLang.symbol : 'Symbol'}</h1>
-                    <p>{ (lang === 'es') ? elementInfoLang.name : 'Name'}</p>
+                    <p>
+                        <FormattedMessage id="app.atomicNumber" defaultMessage="Atomic Number" />
+                    </p>
+                    <h1>
+                        <FormattedMessage id="app.symbol" defaultMessage="Symbol" />
+                    </h1>
+                    <p>
+                        <FormattedMessage id="app.name" defaultMessage="Name" />
 
-                    <small> { 
-                        (state === 'group-block' || state === '' )  
-                        ? (lang === 'es') ? 
-                        elementInfoLang.chemGroup : 'Chemical Group Block' : (lang === 'es') 
-                        ? elementInfoLang.standardState : 'Standard State'
-                        }  
+                    </p>
+
+                    <small>
+                        <FormattedMessage id="app.groupBlock" defaultMessage="Gruop Block " /> 
+                        |
+                        <FormattedMessage id="app.standardState" defaultMessage="Standard State" />
+
                     </small>
                 </div>
             </InfoElementStyles>
 
             <SelectBox>
-                <Select onChange={handleChange} placeholder={(lang === 'es') ? placeHolderSelect.placeholder : 'Select Property'} options={changeLangOptionsOnSelect(lang, options_es)}  />
+                <Select 
+                    onChange={ (e) => handleChange(e) } 
+                    placeholder={placeholder} 
+                    options={selectOptions}  
+                />
+
+                
             </SelectBox>
         
         </InfoWrapper>

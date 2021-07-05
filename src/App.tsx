@@ -1,24 +1,23 @@
+import React from 'react';
+
+//Components
 import PeriodicTable from './Components/PeriodicTable'
 
-import { LangCtx } from 'Context/langContext';
-import { useChangeLang } from 'hooks/changeLang';
+//Context
+import Provider  from './Context/selectedOpsContext';
 
-import { AppCtx } from 'Context/selectedOpsContext';
-import { useStateElement } from 'hooks/stateElement';
+import { LangProvider } from 'Context/langContext';
 
-function App() {
-  //Context for standard state
-  const state = useStateElement();
 
-  //Context for changing the lang to es
-  const lang = useChangeLang();
-  
+const App: React.FC = () => {
+     
   return (
-    <LangCtx.Provider value={lang}>
-      <AppCtx.Provider value={state}>
-          <PeriodicTable /> 
-      </AppCtx.Provider>
-    </LangCtx.Provider>
+   <LangProvider>
+      <Provider>
+        <PeriodicTable /> 
+      </Provider>
+   </LangProvider>
+    
   );
 }
 

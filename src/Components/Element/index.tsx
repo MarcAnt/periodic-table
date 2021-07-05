@@ -1,132 +1,155 @@
 import React, {useContext, useState} from 'react'
+import { motion } from 'framer-motion';
+import {useIntl, FormattedMessage, defineMessages} from 'react-intl';
+//Styles
 import { SingleElement } from './styles'
 
-import { AppCtx } from 'Context/selectedOpsContext';
-import { LangCtx } from 'Context/langContext';
+//Hooks & Types
+import {ElementInfoType} from '../../hooks/useFetchElements';
 
-import useFetchLang from '../../hooks/useFetchLang'
-import { ILangEs } from 'Interfaces/IElements';
-import { filterElementsByLang } from 'helpers/filterByLang';
-import {elementInfoLang} from '../../Lang/es';
+//Context
+import { Context } from 'Context/selectedOpsContext';
 
-
+//Modal
 import Modal from 'Components/Modal';
-import {buttonClose, modalContent, modalOverlay, SingleElementModal, InfoSingleElementModal} from 'Components/Modal/styles';
+import {
+    buttonClose, 
+    modalContent, 
+    modalOverlay, 
+    SingleElementModal, 
+    InfoSingleElementModal
+} from 'Components/Modal/styles';
 import { FaTimes } from 'react-icons/fa';
+import { useEffect } from 'react';
 
-
-interface IElement {
-    name: string;
-    symbol: string;
-    atomicNumber: number;
-    groupBlock: string;
-    bgColor: string;
-    standardStateElement: string; 
-}
-
-
-function controlSmallText(
+const controlSmallText = (
     standarStateContext: string, 
-    standardStateElement: string, 
+    standardState: string, 
     groupBlock: string, 
     atomicNumber: number,
-    lang: string, 
-    elLang: ILangEs | undefined
-    ) {
+    states: (state: string) => string
+    ):string => {
+    
+        if(atomicNumber === 0) return '';
 
-    if(lang === 'es') {
-
-        if (standarStateContext === '' || standarStateContext === 'group-block') {
-            return elLang?.groupBlock
-        }else {
-            return elLang?.standardState
-        }
-
+    if (standarStateContext === '' || standarStateContext === 'group-block') {
+        return states(groupBlock);
     }else {
-        //if lang is undefined or en
-        //default context value group-block or ''
-        
-        if (standarStateContext === '' || standarStateContext === 'group-block') {
-            return groupBlock
-        }else {
-    
-            //if context value is standard-state
-    
-            if(atomicNumber === 0) return ''
-            if(atomicNumber >= 100 && atomicNumber <= 109) return 'Solid'
-            if(atomicNumber === 118) return 'Gas (Expected)'
-            if(standardStateElement === '') return 'Solid (Expected)'
-            return standardStateElement
-        }
-    }
 
+        if(atomicNumber >= 100 && atomicNumber <= 109) return 'Solid';
+        if(atomicNumber === 118) return 'Gas (Expected)';
+        if(standardState === '') return 'Solid (Expected)';
+        return states(standardState);
+    }
     
 }
 
 
-const Element: React.FC<IElement> = ({name, symbol, atomicNumber, groupBlock, bgColor, standardStateElement}) => {
-    
+
+const Element: React.FC<ElementInfoType> = ({name, symbol, atomicNumber, groupBlock, standardState}) => {
+
+    const {color} = useContext(Context);
+
     const [showModal, setShowModal] = useState<boolean>(false);
+
+    useEffect(() => {
+        
+        window.addEventListener('keydown', function (e: KeyboardEvent){
+            if(e.key === 'Escape') setShowModal(false);
+        });
+
+    }, []);
+
+    const intl = useIntl();
     
-    const {lang} = useContext(LangCtx);
-    const {dataLang} = useFetchLang<ILangEs[]>('elements_es.json');
-    const elLang = filterElementsByLang({data: dataLang, number: atomicNumber})
- 
-    //Context: group-block
-    const {standardState} = useContext(AppCtx);
+    //Translated elementes names
+    const names = (name:string) => {
+        const elementsName = defineMessages({
+            name: {
+                id: 'element.'+ name,
+                defaultMessage: '{name}',
+                description: 'Elements Name',
+            },
+        })
+        
+        return intl.formatMessage(elementsName.name)
+    };
+
+    //Translated elementes standards states
+    const states = (state:string) => {
+
+        const elementsName = defineMessages({
+            name: {
+                id: 'element.'+ state,
+                defaultMessage: '{state}',
+                description: 'Elements Standard States',
+            },
+        })
+        
+        return intl.formatMessage(elementsName.name)
+    };
+
 
     return (
         <>
             <SingleElement 
-                onClick={() => setShowModal(true)} 
-                bgColor={bgColor} 
-                groupBlock={groupBlock} 
-                standardStateElement={standardStateElement} 
-                selectState={standardState} 
-                atomicNumber={atomicNumber}>
+                    onClick={() => setShowModal(true)} 
+                    color={color}
+                    groupBlock={groupBlock} 
+                    standardState={standardState} 
+                    atomicNumber={atomicNumber}
+                >
                 
-                <p>{ atomicNumber === 0 ? '' : atomicNumber }</p>
+                <p>{ atomicNumber > 0 ? atomicNumber : '' }</p>
                 <h1>{symbol}</h1>
-                <p>{ ( name === '*' || name === '**' ) ? '' :  lang === "es" ? elLang?.name : name}</p>
-                <small>{ controlSmallText(standardState, standardStateElement, groupBlock, atomicNumber,lang, elLang) }</small>
+                <p>{ (name === '*' || name === '**' ) ? '' : names(name)}</p>
+
+                <small>{ controlSmallText(color, standardState, groupBlock, atomicNumber, states) }</small>
             
             </SingleElement>
 
             { showModal && name !== '*' && name !== '**' && 
                 
                 <Modal>
-                    
+
                     <div style={modalOverlay} ></div>
-                    
-                    <div style={modalContent} >
+                    <motion.div  
+                        initial={{opacity: 0, y: -1000}}  
+                        animate={{
+                            y: (showModal) ? 0 : -1000,
+                            opacity: 1
+                        }} 
+                        transition={{
+                            duration:.5
+                        }}
+                        style={modalContent} 
+                    >
                         
-                       
-                        <SingleElementModal 
-                            onClick={() => setShowModal(true)} 
-                            bgColor={bgColor} 
-                            groupBlock={groupBlock} 
-                            standardStateElement={standardStateElement} 
-                            selectState={standardState} 
-                            atomicNumber={atomicNumber}>
-                            
+                    
+                        <SingleElementModal  color={color} groupBlock={groupBlock} standardState={standardState} atomicNumber={atomicNumber} >
+
                             <p>{ atomicNumber === 0 ? '' : atomicNumber }</p>
                             <h1>{symbol}</h1>
-                            <p>{ ( name === '*' || name === '**' ) ? '' :  lang === "es" ? elLang?.name : name}</p>
-                            <small>{ controlSmallText(standardState, standardStateElement, groupBlock, atomicNumber,lang, elLang) }</small>
+                            <p>{ ( name === '*' || name === '**' ) ? '' : names(name)}</p>
+                            <small>{ controlSmallText(color, standardState, groupBlock, atomicNumber, states) }</small>
                         
                         </SingleElementModal>
 
                         <InfoSingleElementModal>
-                            <p>{ lang === 'es' ? elementInfoLang.atomicNumber : 'Atomic Number' }</p>
-                            <h1>{ lang === 'es' ? elementInfoLang.symbol : 'Symbol' }</h1>
-                            <p>{ lang === 'es' ? elementInfoLang.name : 'Name' }</p>
-                            <small>{ lang === 'es' ? elementInfoLang.chemGroup : 'Chemical Group Block' } | { lang === 'es' ? elementInfoLang.standardState : 'Standard State' }</small>
+                            <p> <FormattedMessage id="app.atomicNumber" defaultMessage="Atomic Number" /> </p>
+                            <h1><FormattedMessage id="app.symbol" defaultMessage="Symbol" /></h1>
+                            <p><FormattedMessage id="app.name" defaultMessage="Name" /></p>
+                            <small>
+                                <FormattedMessage id="app.groupBlock" defaultMessage="Gruop Block " /> 
+                                |
+                                <FormattedMessage id="app.standardState" defaultMessage="Standard State" />
+                            </small>
                         </InfoSingleElementModal>    
                         
                         
                         <button style={buttonClose} onClick={() => setShowModal(false)}><FaTimes /></button>
 
-                    </div>    
+                    </motion.div>    
             
 
                 </Modal> 
