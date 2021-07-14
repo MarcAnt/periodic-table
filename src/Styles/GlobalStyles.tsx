@@ -20,4 +20,4 @@ export const GlobalStyles = createGlobalStyle`
         overflow-x: hidden;
     }
 
-`; 
+`;

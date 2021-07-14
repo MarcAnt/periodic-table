@@ -45,7 +45,6 @@ const controlSmallText = (
 }
 
 
-
 const Element: React.FC<ElementInfoType> = ({name, symbol, atomicNumber, groupBlock, standardState}) => {
 
     const {color} = useContext(Context);

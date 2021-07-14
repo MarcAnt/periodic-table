@@ -1,24 +1,20 @@
-import React from 'react';
+import React from "react";
 
 //Components
-import PeriodicTable from './Components/PeriodicTable'
+import PeriodicTable from "./Components/PeriodicTable";
 
 //Context
-import Provider  from './Context/selectedOpsContext';
-
-import { LangProvider } from 'Context/langContext';
-
+import Provider from "./Context/selectedOpsContext";
+import { LangProvider } from "Context/langContext";
 
 const App: React.FC = () => {
-     
   return (
-   <LangProvider>
+    <LangProvider>
       <Provider>
-        <PeriodicTable /> 
+        <PeriodicTable />
       </Provider>
-   </LangProvider>
-    
+    </LangProvider>
   );
-}
+};
 
 export default App;

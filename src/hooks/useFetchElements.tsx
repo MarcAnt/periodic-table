@@ -1,95 +1,91 @@
-import {useEffect, useState} from 'react'
-import API from 'API';
-import { isPersistedState } from 'helpers/getLocalStorage';
+import { useEffect, useState } from "react";
+import API from "API";
+import { isPersistedState } from "helpers/getLocalStorage";
 
 export type ElementInfoType = {
-    
-    atomicNumber: number;
-    groupBlock: string;
-    name: string;
-    standardState: string;
-    symbol: string;
-    
-}
-    
-const useFetchElements = (atomicNumbers:  (number|string)[], sessionName: string) => {
+  atomicNumber: number;
+  groupBlock: string;
+  name: string;
+  standardState: string;
+  symbol: string;
+};
 
-    const [state, setState] = useState<ElementInfoType[]>([]);
-    const [error, setError] = useState(false);
-    const [loading, setLoading] = useState(false);
+const useFetchElements = (
+  atomicNumbers: (number | string)[],
+  sessionName: string
+) => {
+  const [state, setState] = useState<ElementInfoType[]>([]);
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-    useEffect(() => {
+  useEffect(() => {
+    const fetchElements = async () => {
+      try {
+        let elementsFiltered: ElementInfoType[] = [];
 
-        const fetchElements = async () => {
-            try {
+        setLoading(true);
+        setError(false);
+        const elements = await API.fetchElement();
 
-                let elementsFiltered: ElementInfoType[] = [];
+        atomicNumbers
+          .map((item) => {
+            return item;
+          })
+          .filter((an) => {
+            if (an === "*")
+              elementsFiltered.push({
+                name: "*",
+                symbol: "*",
+                atomicNumber: 0,
+                groupBlock: "",
+                standardState: "",
+              });
+            if (an === "**")
+              elementsFiltered.push({
+                name: "**",
+                symbol: "**",
+                atomicNumber: 0,
+                groupBlock: "",
+                standardState: "",
+              });
 
-                setLoading(true)
-                setError(false)
-                const elements = await API.fetchElement();                
-                
-                atomicNumbers.map( item => {
-                    return item;
-                    }).filter(an => {
-                        if(an === '*') elementsFiltered.push({
-                            name: '*',
-                            symbol: '*', 
-                            atomicNumber: 0,
-                            groupBlock: '',
-                            standardState: ''
-                        })
-                        if(an === '**') elementsFiltered.push({
-                            name: '**',
-                            symbol: '**', 
-                            atomicNumber: 0,
-                            groupBlock: '',
-                            standardState: ''
-                        })
-        
-                        return elements.map(el => {
+            return elements.map((el) => {
+              if (el.atomicNumber === an) {
+                elementsFiltered.push({
+                  name: el.name,
+                  symbol: el.symbol,
+                  atomicNumber: el.atomicNumber,
+                  groupBlock: el.groupBlock,
+                  standardState: el.standardState,
+                });
+              }
 
-                            if(el.atomicNumber === an){
+              return elementsFiltered;
+            });
+          });
 
-                                elementsFiltered.push({
-                                    name: el.name,
-                                    symbol: el.symbol, 
-                                    atomicNumber: el.atomicNumber,
-                                    groupBlock: el.groupBlock,
-                                    standardState: el.standardState
-                                }) 
-                            }
+        setState(elementsFiltered);
+      } catch (error) {
+        setError(true);
+      }
+    };
 
-                            return elementsFiltered;
-                        })
-                    })
+    const sessionState = isPersistedState(sessionName);
+    //lo lee si existe una sesion creada
+    if (sessionState) {
+      setState(sessionState);
+      setLoading(false);
+    }
 
-                setState(elementsFiltered)
+    fetchElements();
+  }, [atomicNumbers, sessionName]);
 
-            } catch (error) {
-                setError(true);
-            }
-        }
+  //write the sessionStorage
+  useEffect(() => {
+    sessionStorage.setItem(sessionName, JSON.stringify(state));
+  }, [state, atomicNumbers, sessionName]);
 
+  return { state, loading, error };
+};
 
-        const sessionState = isPersistedState(sessionName);
-        //lo lee si existe una sesion creada
-        if(sessionState){
-            setState(sessionState);
-            setLoading(false);
-        }   
-        
-        fetchElements();
-
-        
-    }, [atomicNumbers, sessionName])
-
-    //write the sessionStorage
-    useEffect(() => {
-        sessionStorage.setItem(sessionName, JSON.stringify(state))
-    }, [state, atomicNumbers, sessionName])
-
-    return {state, loading, error}
-}
-
-export default useFetchElements
+export default useFetchElements;

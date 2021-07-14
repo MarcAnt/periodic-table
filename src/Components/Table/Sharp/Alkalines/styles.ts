@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
 export const AlkalineStyles = styled.div`
-    display: grid;
-    width: 100%;
-`; 
+  display: grid;
+  width: 100%;
+`;
