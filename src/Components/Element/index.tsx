@@ -31,9 +31,9 @@ const controlSmallText = (
   if (standarStateContext === "" || standarStateContext === "group-block") {
     return states(groupBlock);
   } else {
-    if (atomicNumber >= 100 && atomicNumber <= 109) return "Solid";
-    if (atomicNumber === 118) return "Gas (Expected)";
-    if (standardState === "") return "Solid (Expected)";
+    if (atomicNumber >= 100 && atomicNumber <= 109) return states("Solid");
+    if (atomicNumber === 118) return states("Gas (Expected)");
+    if (standardState === "") return states("Solid (Expected)");
     return states(standardState);
   }
 };

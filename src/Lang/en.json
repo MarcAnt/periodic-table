@@ -23,6 +23,7 @@
   "element.actinoid": "actinoid",
 
   "element.solid": "solid",
+  "element.Solid": "solid",
   "element.liquid": "liquid",
   "element.gas": "gas",
   "element.Solid (Expected)": "Solid (Expected)",
