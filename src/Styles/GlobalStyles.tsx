@@ -20,4 +20,10 @@ export const GlobalStyles = createGlobalStyle`
         overflow-x: hidden;
     }
 
+    @media (max-width: 280px) {
+        body {
+            overflow-x: auto;
+        }
+    }
+
 `;

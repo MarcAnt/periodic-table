@@ -57,7 +57,8 @@ export const SingleElement = styled.button<IBgColor>`
   color: ${(props) => (props.atomicNumber !== 0 ? "black" : "whitesmoke")};
   border-radius: 10px;
   border: none;
-  width: 75px;
+
+  overflow: hidden;
   cursor: ${(props) => (props.atomicNumber > 0 ? "pointer" : "default")};
   background-color: ${(props) =>
     selectedStateBgColor(
@@ -79,7 +80,12 @@ export const SingleElement = styled.button<IBgColor>`
     font-size: 1.5rem;
   }
   small {
-    font-size: 0.43rem;
+    width: 100%;
+    font-size: 0.5rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
   }
 
   :hover {
@@ -99,6 +105,23 @@ export const SingleElement = styled.button<IBgColor>`
     small {
       display: none;
       /* font-size: .20rem; */
+    }
+  }
+
+  @media (max-width: 768px) {
+    p.name {
+      display: none;
+    }
+  }
+
+  @media (max-width: 550px) {
+    h1 {
+      font-size: 0.6rem;
+    }
+  }
+  @media (max-width: 360px) {
+    h1 {
+      font-size: 0.5rem;
     }
   }
 `;

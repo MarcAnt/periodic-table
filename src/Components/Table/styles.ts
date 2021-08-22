@@ -7,4 +7,9 @@ export const TableWrapper = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   margin: 2rem auto;
+  max-width: 1300px;
+
+  @media (max-width: 280px) {
+    min-width: 280px;
+  }
 `;

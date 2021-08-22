@@ -3,13 +3,20 @@ import styled from "styled-components";
 export const InfoWrapper = styled.div`
   position: absolute;
   display: flex;
-  width: 40%;
-  top: 25px;
-  left: 25%;
-  transform: translateY(11rem);
+  max-width: 1000px;
+  width: 500px;
+  top: 10px;
+
+  transform: translate(-5rem, 11rem);
 
   @media screen and (max-width: 1221px) {
     left: 30%;
+    top: 25px;
+    width: 50%;
+  }
+
+  @media screen and (max-width: 920px) {
+    left: 40%;
     top: 25px;
     width: 50%;
   }

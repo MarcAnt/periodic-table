@@ -19,6 +19,7 @@ export const HeaderStyles = styled.div`
 
   h1 {
     padding-top: 2rem;
+    text-align: center;
   }
 
   span {
