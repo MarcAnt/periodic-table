@@ -5,12 +5,10 @@ import Select from "react-select";
 
 import Element from "../../Element";
 
-import useFetchElements from "hooks/useFetchElements";
-import { ATOMIC_NUMBER_FOR_INFO } from "helpers/atomicNumbers";
-
-import { Context } from "Context/selectedOpsContext";
-
 import { useIntl, FormattedMessage } from "react-intl";
+import useFetchElements from "../../../hooks/useFetchElements";
+import { ATOMIC_NUMBER_FOR_INFO } from "../../../helpers/atomicNumbers";
+import { Context } from "../../../Context/selectedOpsContext";
 
 const options = [
   { value: "group-block", label: "Chemical Group Block" },

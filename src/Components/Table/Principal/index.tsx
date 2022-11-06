@@ -4,7 +4,7 @@ import { PrincipalStyles } from "./styles";
 import Element from "../../Element";
 
 import { ATOMIC_NUMBERS_GROUP_NONMETALS } from "../../../helpers/atomicNumbers";
-import useFetchElements from "hooks/useFetchElements";
+import useFetchElements from "../../../hooks/useFetchElements";
 
 const Principal: React.FC = () => {
   const { state: principal } = useFetchElements(

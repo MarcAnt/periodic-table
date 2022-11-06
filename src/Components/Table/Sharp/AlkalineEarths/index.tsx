@@ -3,8 +3,8 @@ import { AlkalineEarthStyles } from "./styles";
 
 import Element from "../../../Element";
 
-import useFetchElements from "hooks/useFetchElements";
 import { ATOMIC_NUMBERS_GROUP_ALKALINE_EARTH } from "../../../../helpers/atomicNumbers";
+import useFetchElements from "../../../../hooks/useFetchElements";
 
 const AlkalineEarths: React.FC = () => {
   const { state: alkalineEarth } = useFetchElements(

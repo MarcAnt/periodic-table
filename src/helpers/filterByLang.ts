@@ -1,4 +1,4 @@
-import { ILangEs } from "Interfaces/IElements";
+import { ILangEs } from "../Interfaces/IElements";
 
 export function filterElementsByLang({
   data,

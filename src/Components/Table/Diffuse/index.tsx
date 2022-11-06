@@ -1,10 +1,10 @@
-import useFetchElements from "hooks/useFetchElements";
 import React from "react";
 import { DiffuseStyles } from "./styles";
 
 import Element from "../../Element";
 
 import { ATOMIC_NUMBERS_GROUP_METALS } from "../../../helpers/atomicNumbers";
+import useFetchElements from "../../../hooks/useFetchElements";
 
 const Diffuse: React.FC = () => {
   const { state: diffuse } = useFetchElements(

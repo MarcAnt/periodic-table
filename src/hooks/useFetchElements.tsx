@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import API from "API";
-import { isPersistedState } from "helpers/getLocalStorage";
+import API from "../API";
+
+import { isPersistedState } from "../helpers/getLocalStorage";
 
 export type ElementInfoType = {
   atomicNumber: number;

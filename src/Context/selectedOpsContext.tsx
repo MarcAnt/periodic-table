@@ -12,11 +12,10 @@ export const contextValue: ColorState = {
 
 export const Context = createContext<ColorState>(contextValue);
 
-const Provider = ({ children }: { children: JSX.Element }) => {
+export const Provider = ({ children }: { children: JSX.Element }) => {
   const [color, setColor] = useState("group-block");
 
   return (
     <Context.Provider value={{ color, setColor }}>{children}</Context.Provider>
   );
 };
-export default Provider;

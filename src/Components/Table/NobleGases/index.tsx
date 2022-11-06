@@ -1,10 +1,10 @@
-import useFetchElements from "hooks/useFetchElements";
 import React from "react";
 import { NobleGasesStyles } from "./styles";
 
 import Element from "../../Element";
 
 import { ATOMIC_NUMBERS_GROUP_NOBLEGASES } from "../../../helpers/atomicNumbers";
+import useFetchElements from "../../../hooks/useFetchElements";
 
 const NobleGases: React.FC = () => {
   const { state: noblegases } = useFetchElements(

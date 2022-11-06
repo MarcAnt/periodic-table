@@ -4,8 +4,7 @@ import { AlkalineStyles } from "./styles";
 import Element from "../../../Element";
 
 import { ATOMIC_NUMBERS_GROUP_ALKALINE } from "../../../../helpers/atomicNumbers";
-
-import useFetchElements from "hooks/useFetchElements";
+import useFetchElements from "../../../../hooks/useFetchElements";
 
 const Alkaline: React.FC = () => {
   const { state: alkaline } = useFetchElements(

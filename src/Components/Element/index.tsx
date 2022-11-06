@@ -8,16 +8,14 @@ import { SingleElement } from "./styles";
 import { ElementInfoType } from "../../hooks/useFetchElements";
 
 //Context
-import { Context } from "Context/selectedOpsContext";
 
 //Modal
-import Modal from "Components/Modal";
-import {
-  SingleElementModal,
-  InfoSingleElementModal,
-} from "Components/Modal/styles";
+
 import { FaTimes } from "react-icons/fa";
 import { useEffect } from "react";
+import { Context } from "../../Context/selectedOpsContext";
+import { InfoSingleElementModal, SingleElementModal } from "../Modal/styles";
+import Modal from "../Modal";
 
 const controlSmallText = (
   standarStateContext: string,

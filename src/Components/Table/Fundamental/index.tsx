@@ -1,9 +1,9 @@
-import useFetchElements from "hooks/useFetchElements";
 import React from "react";
 import { FundamentalStyles } from "./styles";
 
 import Element from "../../Element";
 
+import useFetchElements from "../../../hooks/useFetchElements";
 import { ATOMIC_NUMBERS_GROUP_FUNDAMENTAL } from "../../../helpers/atomicNumbers";
 
 const Fundamental: React.FC = () => {

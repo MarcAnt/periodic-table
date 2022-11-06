@@ -1,4 +1,4 @@
-import { IElements } from "Interfaces/IElements";
+import { IElements } from "../Interfaces/IElements";
 
 export interface ISingleElement {
   name: string;
